@@ -1,0 +1,11 @@
+* patching
+  - git
+  - diff
+  - patch
+** unpack source
+  #+begin_src shell
+    ebuild /path/to/ebuild clean unpack
+  #+End_src
+** Notes
+   1. check ebuild file
+      - patches in ebuild maybe cause conflicts

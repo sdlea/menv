@@ -3,3 +3,6 @@
 * omz - oh-my-zsh
   - add extra alias
   - function for setting proxy
+* Gentoo
+  - USE flags
+  - patching HOWTO
