@@ -1,0 +1,5 @@
+* MENV
+  - anything suits my personal taste
+* omz - oh-my-zsh
+  - add extra alias
+  - function for setting proxy
