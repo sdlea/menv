@@ -1,0 +1,28 @@
+* patching
+  - git
+  - diff
+  - patch
+** unpack source
+  #+begin_src shell
+    ebuild /path/to/ebuild clean unpack
+  #+End_src
+** Notes
+   1. check ebuild file
+      - patches in ebuild maybe cause conflicts
+* nvidia tips
+  1. xorg-server wont load nvidia-driver
+     - use nouveau
+     - it turns out xorg-server using config file in /usr/share instead of /etc
+     - dont know if a bug or config problem yet
+  2. rebuild driver after upgrade kernel, or USE flag
+* game controller
+  1. it is not a gentoo problem
+     before Game or Hardware section created, it stays here for the time being
+** kernel driver xpadneo for Gamesir T4 Nova Lite
+   1. Forced Feedback support
+* emerge
+** current emerge compile progress
+   just checking progress
+   #+begin_src shell :results drawer
+     tail /var/log/emerge.log
+   #+end_src

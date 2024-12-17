@@ -54,6 +54,6 @@ alias cjklc="export LC_CTYPE=\"zh_CN.utf8\""
 # ===shortcuts end===
 
 # ===umask===
-umask 0113
-alias mkdir="mkdir -m 775 "
+umask 0003
+# alias mkdir="mkdir -m 775 "
 # ===umask end===

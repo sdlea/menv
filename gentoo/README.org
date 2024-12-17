@@ -1,0 +1,24 @@
+* Gentoo
+  - OpenRC
+** X11
+*** basic
+   - xorg-server
+   - xcompmgr
+   - xinit
+   - vidia-drivers/nouveau
+*** window manager
+    - openbox
+    - dwm[tigervnc]
+*** keyboraad
+    - setxkbmap
+*** tools
+    - wmctrl[polybar]
+*** bar
+    - polybar
+      + wmctrl
+      + xwininfo
+      + xprop
+** sound
+*** alsa
+*** pulseaudio
+*** pipewire

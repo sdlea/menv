@@ -1,0 +1,298 @@
+* Global
+#+begin_src make.conf
+  USE="X alsa elogind grub -systemd savedconfig unicode bluetooth -wayland \
+     -jack -pipewire dbus pulseaudio curl dist-kernel \
+     modules-compress sdl sdl2"
+#+end_src
+* Package
+#+begin_src shell :results drawer
+  for file in /etc/portage/package.use/*; do \
+      awk 'BEGIN {print "- " ARGV[1] "\n#+begin_src\n"} {print $0} END{print "\n#+end_src\n"}' $file; \
+  done
+#+end_src
+
+#+RESULTS:
+:results:
+- /etc/portage/package.use/7zip
+#+begin_src
+
+app-arch/7zip rar
+
+#+end_src
+
+- /etc/portage/package.use/aria2-use-flag
+#+begin_src
+
+net-misc/aria2 bittorrent ssh
+
+#+end_src
+
+- /etc/portage/package.use/conky
+#+begin_src
+
+app-admin/conky nvidia pulseaudio curl wifi math rss
+
+#+end_src
+
+- /etc/portage/package.use/dmenu
+#+begin_src
+
+=x11-misc/dmenu-5.3 savedconfig
+
+#+end_src
+
+- /etc/portage/package.use/emacs-gui
+#+begin_src
+
+app-editors/emacs gui -gtk xft tree-sitter webp zlib svg sqlite sound png json jpeg gif dynamic-loading motif  -athena  -Xaw3d mailutils jit
+sys-devel/gcc jit
+
+#+end_src
+
+- /etc/portage/package.use/frp
+#+begin_src
+
+net-vpn/frp client -server
+
+#+end_src
+
+- /etc/portage/package.use/gimp
+#+begin_src
+
+media-gfx/gimp doc webp wmf xpm -gnome aqua
+
+#+end_src
+
+- /etc/portage/package.use/glibc
+#+begin_src
+
+sys-libs/glibc hash-sysv-compat
+
+#+end_src
+
+- /etc/portage/package.use/installkernel
+#+begin_src
+
+sys-kernel/installkernel grub
+
+#+end_src
+
+- /etc/portage/package.use/libreoffice
+#+begin_src
+
+app-office/libreoffice ldap postgres pdfimport
+# required by app-office/libreoffice-24.2.6.2::gentoo
+# required by libreoffice (argument)
+>=dev-libs/xmlsec-1.3.4 nss
+# required by app-office/libreoffice-24.2.6.2::gentoo[postgres]
+# required by libreoffice (argument)
+>=dev-db/postgresql-16.4 kerberos
+# required by x11-misc/xdg-utils-1.2.1-r6::gentoo
+# required by app-office/libreoffice-24.2.6.2::gentoo
+# required by libreoffice (argument)
+>=app-text/xmlto-0.0.28-r11 text
+
+#+end_src
+
+- /etc/portage/package.use/mmaker-py-target
+#+begin_src
+
+x11-misc/menumaker python_single_target_python3_11
+
+#+end_src
+
+- /etc/portage/package.use/nextcloud
+#+begin_src
+
+# dev-lang/php ctype curl fileinfo filter gd iconv ssl posix session simplexml xmlreader xmlwriter zip zlib postgres bzip2 gmp bcmath exif intl sysvipc
+
+#+end_src
+
+- /etc/portage/package.use/nvidia-drivers
+#+begin_src
+
+x11-drivers/nvidia-drivers kernel-open modules-compress
+
+#+end_src
+
+- /etc/portage/package.use/openvpn
+#+begin_src
+
+net-vpn/openvpn examples
+
+#+end_src
+
+- /etc/portage/package.use/pipewire
+#+begin_src
+
+media-video/pipewire sound-server man X bluetooth ffmpeg pipewire-alsa readline -system-service extra
+media-video/wireplumber elogind
+
+
+#+end_src
+
+- /etc/portage/package.use/polybar
+#+begin_src
+
+x11-misc/polybar ipc mpd network
+
+#+end_src
+
+- /etc/portage/package.use/postgresql
+#+begin_src
+
+dev-db/postgresql python uuid xml llvm doc ldap llvm
+
+#+end_src
+
+- /etc/portage/package.use/steam
+#+begin_src
+
+x11-libs/libX11  abi_x86_32
+x11-libs/libXau  abi_x86_32
+x11-libs/libxcb  abi_x86_32
+x11-libs/libXdmcp  abi_x86_32
+virtual/opengl  abi_x86_32
+media-libs/mesa  abi_x86_32
+dev-libs/expat  abi_x86_32
+media-libs/libglvnd  abi_x86_32
+sys-libs/zlib  abi_x86_32
+x11-libs/libdrm  abi_x86_32
+x11-libs/libxshmfence  abi_x86_32
+x11-libs/libXext  abi_x86_32
+x11-libs/libXxf86vm  abi_x86_32
+x11-libs/libXfixes  abi_x86_32
+app-arch/zstd  abi_x86_32
+# move sys-devel/llvm llvm-core/llvm
+llvm-core/llvm  abi_x86_32
+x11-libs/libXrandr  abi_x86_32
+x11-libs/libXrender  abi_x86_32
+dev-libs/libffi  abi_x86_32
+sys-libs/ncurses  abi_x86_32
+dev-libs/libxml2  abi_x86_32
+dev-libs/icu  abi_x86_32
+sys-libs/gpm  abi_x86_32
+virtual/libelf  abi_x86_32
+dev-libs/elfutils  abi_x86_32
+app-arch/bzip2  abi_x86_32
+dev-libs/nspr  abi_x86_32
+dev-libs/nss  abi_x86_32
+net-libs/libndp  abi_x86_32
+x11-libs/extest abi_x86_32
+dev-libs/libevdev abi_x86_32
+dev-libs/wayland abi_x86_32
+virtual/rust abi_x86_32
+dev-lang/rust-bin abi_x86_32
+x11-libs/libpciaccess abi_x86_32
+# move sys-devel/clang llvm-core/clang
+llvm-core/clang abi_x86_32
+media-libs/fontconfig abi_x86_32
+sys-libs/libudev-compat abi_x86_32
+media-libs/libpulse abi_x86_32
+media-libs/libsndfile abi_x86_32
+net-libs/libasyncns abi_x86_32
+sys-apps/dbus abi_x86_32
+dev-libs/glib abi_x86_32
+dev-libs/libpcre2 abi_x86_32
+sys-apps/util-linux abi_x86_32
+media-libs/flac abi_x86_32
+media-libs/libogg abi_x86_32
+media-libs/libvorbis abi_x86_32
+media-libs/opus abi_x86_32
+media-sound/lame abi_x86_32
+media-sound/mpg123-base abi_x86_32
+media-libs/freetype abi_x86_32
+media-libs/libpng abi_x86_32
+virtual/libintl abi_x86_32
+virtual/libudev abi_x86_32
+sys-apps/systemd-utils abi_x86_32
+sys-libs/libcap abi_x86_32
+sys-libs/pam abi_x86_32
+virtual/libiconv abi_x86_32
+x11-libs/xcb-util-keysyms abi_x86_32
+
+#+end_src
+
+- /etc/portage/package.use/sysstat
+#+begin_src
+
+>=app-admin/sysstat-12.6.2-r1 lm-sensors
+
+#+end_src
+
+- /etc/portage/package.use/tex
+#+begin_src
+
+app-text/texlive-core cjk xetex
+app-text/texlive cjk context extra graphics luatex metapost pdfannotextracctor science tex4ht truetype xml xetex texi2html
+
+#+end_src
+
+- /etc/portage/package.use/vlc
+#+begin_src
+
+media-video/vlc xml jpeg png srt svg flac mpeg
+
+#+end_src
+
+- /etc/portage/package.use/zz-autounmask
+#+begin_src
+
+# package.use# required by sys-kernel/gentoo-kernel-6.6.35::gentoo[initramfs]
+# required by virtual/dist-kernel-6.6.35::gentoo
+>=sys-kernel/installkernel-39-r1 dracut grub
+# required by www-client/firefox-115.13.0::gentoo[system-libvpx]
+# required by www-client/firefox (argument)
+>=media-libs/libvpx-1.13.1-r1 postproc
+# required by dev-lang/R-4.3.1-r1::gentoo
+# required by dev-lang/R (argument)
+>=sys-libs/zlib-1.3.1-r1 minizip
+# required by app-text/texlive-core-2023-r9::gentoo
+# required by virtual/tex-base-0::gentoo
+# required by app-text/lcdf-typetools-2.110::gentoo
+# required by app-text/texlive-2023::gentoo
+# required by app-text/texlive (argument)
+>=media-libs/harfbuzz-8.5.0 icu
+# required by x11-base/xorg-server-21.1.13-r1::gentoo[elogind]
+# required by x11-drivers/xf86-input-libinput-1.4.0::gentoo
+# required by x11-base/xorg-drivers-21.1-r2::gentoo[input_devices_libinput]
+>=sys-auth/pambase-20240128 elogind
+# required by www-servers/nginx-1.26.1-r1::gentoo
+# required by www-servers/nginx (argument)
+>=app-misc/mime-types-2.1.54 nginx
+# required by media-sound/pulseaudio-daemon-17.0-r1::gentoo[alsa-plugin,alsa]
+# required by media-libs/libpulse-17.0::gentoo
+# required by www-client/firefox-bin-128.0::gentoo[pulseaudio]
+# required by www-client/firefox-bin (argument)
+>=media-plugins/alsa-plugins-1.2.7.1-r1 pulseaudio
+# required by app-editors/emacs-29.3-r3::gentoo
+# required by @selected
+# required by @world (argument)
+>=app-emacs/emacs-common-1.10 gui
+# required by games-util/steam-launcher-1.0.0.79::steam-overlay[video_cards_nvidia]
+# required by games-util/steam-launcher (argument)
+>=x11-drivers/nvidia-drivers-550.100 abi_x86_32
+# required by dev-libs/nss-3.90.2-r1::gentoo
+# required by www-client/firefox-115.13.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-db/sqlite-3.46.0 abi_x86_32
+# required by dev-db/sqlite-3.46.0::gentoo[readline]
+# required by dev-libs/nss-3.90.2-r1::gentoo
+# required by www-client/firefox-115.13.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=sys-libs/readline-8.2_p10 abi_x86_32
+# required by gnome-base/gnome-keyring-42.1-r2::gentoo
+# required by virtual/secret-service-0::gentoo
+# required by app-crypt/libsecret-0.21.1::gentoo
+# required by app-editors/vscodium-1.94.2.24286::gentoo
+# required by app-editors/vscodium (argument)
+>=app-crypt/gcr-3.41.1-r2:0 gtk
+# required by app-portage/pfl-3.5.3::gentoo[network-cron]
+# required by app-portage/pfl (argument)
+>=sys-apps/util-linux-2.40.2 caps
+
+#+end_src
+
+:end:
